@@ -138,7 +138,7 @@ export function cardTemplate(d: MetricsResult): string {
   <text x="822" y="350" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="12" font-weight="600" fill="#f59e0b" letter-spacing="1.5" opacity="0.8">FILED &amp; FIXED</text>
   <text x="822" y="430" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="72" font-weight="800" fill="#e2e8f0" letter-spacing="-3">${esc(abbreviate(d.filedAndFixedCount))}</text>
   <text x="822" y="465" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" fill="#64748b">issues fixed by maintainers</text>
-  ${filedAndFixedRepos ? `<text x="822" y="510" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="11" fill="#64748b">${esc(filedAndFixedRepos)}</text>` : ''}
+  ${filedAndFixedRepos ? `<text x="822" y="540" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="12" fill="#f59e0b" opacity="0.7">${esc(filedAndFixedRepos)}</text>` : ''}
 
 </svg>`;
 }
