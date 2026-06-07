@@ -1,0 +1,23 @@
+# Reference workflow: copy this into YOUR profile repo (username/username)
+# and adjust 'username' to your GitHub handle.
+name: Update contribution card
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # 03:00 UTC daily
+  workflow_dispatch:        # allow manual trigger
+
+jobs:
+  update-card:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: Nexory/gh-contrib-stats@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          username: YOUR_GITHUB_HANDLE
+          output_path: card.svg
+          theme: dark
