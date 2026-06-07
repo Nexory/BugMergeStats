@@ -1,4 +1,4 @@
-# gh-contrib-stats
+# bugmerge-stats
 
 Static SVG contribution card for your GitHub profile README, including the unique **filed-and-fixed lineage**: issues you filed that a maintainer later closed with their own merged PR.
 
@@ -40,7 +40,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: Nexory/gh-contrib-stats@main
+      - uses: Nexory/BugMergeStats@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           username: YOURHANDLE
@@ -61,14 +61,14 @@ That's it. The first time the workflow runs (you can trigger it manually under t
 If you want to generate a one-off SVG without committing anything:
 
 ```bash
-GITHUB_TOKEN=ghp_xxx npx --yes github:Nexory/gh-contrib-stats --user YOURHANDLE --output card.svg
+GITHUB_TOKEN=ghp_xxx npx --yes github:Nexory/BugMergeStats --user YOURHANDLE --output card.svg
 ```
 
 Or clone + build:
 
 ```bash
-git clone https://github.com/Nexory/gh-contrib-stats
-cd gh-contrib-stats
+git clone https://github.com/Nexory/BugMergeStats
+cd bugmerge-stats
 npm install
 GITHUB_TOKEN=ghp_xxx npx tsx src/index.ts --user YOURHANDLE --output card.svg
 ```
@@ -78,7 +78,7 @@ A GitHub personal access token lifts the rate limit from 60 to 5000 req/h. The t
 ## CLI flags
 
 ```
-gh-contrib-stats --user <handle> --output <path.svg> [options]
+bugmerge-stats --user <handle> --output <path.svg> [options]
 
   --user <handle>          GitHub username (required)
   --output <path>          SVG output path (required)
@@ -95,7 +95,7 @@ When the action runs in your profile repo it uses `secrets.GITHUB_TOKEN` by defa
 This is intentional behaviour for a public-profile card. The visitor reading your profile can verify every number themselves by running the same search. To include private activity you can pass a personal access token with `repo` + `read:user` scopes via a repo secret:
 
 ```yaml
-- uses: Nexory/gh-contrib-stats@<sha>
+- uses: Nexory/BugMergeStats@<sha>
   with:
     github_token: ${{ secrets.CARD_TOKEN }}   # PAT, not GITHUB_TOKEN
     username: YOURHANDLE

@@ -3,7 +3,7 @@
      role="img" aria-labelledby="card-title card-desc">
 
   <title id="card-title">Nexory - GitHub Contribution Stats</title>
-  <desc id="card-desc">Contribution card for Nexory: 78 issues filed, 1 PRs merged, 39 repos contributed, 12 comment threads, 15 filed-and-fixed. Rank: A.</desc>
+  <desc id="card-desc">Contribution card for Nexory: 78 issues filed, 16 PRs merged, 41 repos contributed, 12 comment threads, 15 filed-and-fixed. Rank: S.</desc>
 
   <defs>
     <clipPath id="avatar-clip"><circle cx="190" cy="200" r="72"/></clipPath>
@@ -38,7 +38,7 @@
   <text x="190" y="340" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" font-weight="400" fill="#64748b" text-anchor="middle">Open Source Contributor</text>
   <line x1="80" y1="362" x2="300" y2="362" stroke="#1e2d5a" stroke-width="1"/>
   <text x="190" y="442" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" font-weight="500" fill="#94a3b8" text-anchor="middle">RANK</text>
-  <text x="190" y="475" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="36" font-weight="800" fill="#e2e8f0" text-anchor="middle" letter-spacing="-0.5">A</text>
+  <text x="190" y="475" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="36" font-weight="800" fill="#e2e8f0" text-anchor="middle" letter-spacing="-0.5">S</text>
   <rect x="115" y="490" width="150" height="34" rx="17" fill="#1e2d5a"/>
   <text x="190" y="512" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="12" font-weight="600" fill="#7dd3fc" text-anchor="middle">15 filed &amp; fixed</text>
 
@@ -66,8 +66,8 @@
     <circle cx="820" cy="60" r="60" fill="none" stroke="#3b82f6" stroke-width="1"/>
   </g>
   <text x="822" y="80" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="12" font-weight="600" fill="#3b82f6" letter-spacing="1.5" opacity="0.8">PRS MERGED</text>
-  <text x="822" y="170" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="72" font-weight="800" fill="#e2e8f0" letter-spacing="-3">1</text>
-  <text x="822" y="200" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" fill="#64748b">8 closed · 1 merged</text>
+  <text x="822" y="170" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="72" font-weight="800" fill="#e2e8f0" letter-spacing="-3">16</text>
+  <text x="822" y="200" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" fill="#64748b">24 closed · 16 merged</text>
   <text x="822" y="268" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="12" fill="#3b82f6" opacity="0.7">top: drizzle-orm · polymarket-cli · flags</text>
 
   <!-- BOTTOM-LEFT: Repos + Comment Threads (purple) -->
@@ -79,7 +79,7 @@
     <rect x="455" y="350" width="285" height="170" fill="none" stroke="#a855f7" stroke-width="1"/>
   </g>
   <text x="437" y="350" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="12" font-weight="600" fill="#a855f7" letter-spacing="1.5" opacity="0.8">REPOS CONTRIBUTED</text>
-  <text x="437" y="430" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="72" font-weight="800" fill="#e2e8f0" letter-spacing="-3">39</text>
+  <text x="437" y="430" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="72" font-weight="800" fill="#e2e8f0" letter-spacing="-3">41</text>
   <text x="437" y="465" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="13" fill="#64748b">distinct repositories</text>
   <text x="437" y="540" font-family="'Inter','Segoe UI',system-ui,sans-serif" font-size="12" fill="#a855f7" opacity="0.7">12 comment threads</text>
 

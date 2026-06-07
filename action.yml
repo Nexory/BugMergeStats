@@ -1,4 +1,4 @@
-name: "gh-contrib-stats"
+name: "bugmerge-stats"
 description: "Generate a static SVG contribution card and commit it to your repo. Includes the unique filed-and-fixed lineage metric."
 author: "Nexory"
 
@@ -33,11 +33,11 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout gh-contrib-stats tool
+    - name: Checkout bugmerge-stats tool
       uses: actions/checkout@v4
       with:
-        repository: Nexory/gh-contrib-stats
-        path: .gh-contrib-stats-tool
+        repository: Nexory/BugMergeStats
+        path: .bugmerge-stats-tool
         ref: main
 
     - name: Setup Node.js 20
@@ -45,16 +45,16 @@ runs:
       with:
         node-version: "20"
         cache: "npm"
-        cache-dependency-path: .gh-contrib-stats-tool/package-lock.json
+        cache-dependency-path: .bugmerge-stats-tool/package-lock.json
 
     - name: Install tool dependencies
       shell: bash
-      working-directory: .gh-contrib-stats-tool
+      working-directory: .bugmerge-stats-tool
       run: npm ci --prefer-offline --no-audit --no-fund
 
     - name: Generate contribution card
       shell: bash
-      working-directory: .gh-contrib-stats-tool
+      working-directory: .bugmerge-stats-tool
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
       run: |
@@ -66,14 +66,14 @@ runs:
 
     - name: Remove tool checkout to keep repo clean
       shell: bash
-      run: rm -rf .gh-contrib-stats-tool
+      run: rm -rf .bugmerge-stats-tool
 
     - name: Commit updated card
       shell: bash
       run: |
         git config user.name "github-actions[bot]"
         git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        rm -f .gh-contrib-stats-cache.json
+        rm -f .bugmerge-stats-cache.json
         git add "${{ inputs.output_path }}" 2>/dev/null || true
         if git diff --cached --quiet; then
           echo "No changes to commit."

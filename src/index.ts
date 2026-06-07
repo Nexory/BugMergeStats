@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * gh-contrib-stats - CLI entry point
- * Usage: gh-contrib-stats --user <handle> --output <path.svg> [--theme dark|light] [--token <tok>] [--no-avatar] [--cache-ttl <minutes>]
+ * bugmerge-stats - CLI entry point
+ * Usage: bugmerge-stats --user <handle> --output <path.svg> [--theme dark|light] [--token <tok>] [--no-avatar] [--cache-ttl <minutes>]
  */
 import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
@@ -36,12 +36,12 @@ async function main() {
   const cacheTtlMinutes = parseInt((args['cache-ttl'] as string) || '360', 10);
 
   if (!user || !output) {
-    console.error('Usage: gh-contrib-stats --user <handle> --output <path.svg> [--theme dark|light] [--token <tok>] [--no-avatar] [--cache-ttl <minutes>]');
+    console.error('Usage: bugmerge-stats --user <handle> --output <path.svg> [--theme dark|light] [--token <tok>] [--no-avatar] [--cache-ttl <minutes>]');
     process.exit(1);
   }
 
   const outputPath = resolve(output);
-  const cacheFile = resolve(dirname(outputPath), '.gh-contrib-stats-cache.json');
+  const cacheFile = resolve(dirname(outputPath), '.bugmerge-stats-cache.json');
 
   // Cache check
   if (existsSync(cacheFile)) {
@@ -49,17 +49,17 @@ async function main() {
       const cache = JSON.parse(readFileSync(cacheFile, 'utf8')) as { user: string; fetchedAt: string; metrics: MetricsResult };
       const ageMinutes = (Date.now() - new Date(cache.fetchedAt).getTime()) / 60000;
       if (cache.user === user && ageMinutes < cacheTtlMinutes) {
-        console.log(`[gh-contrib-stats] Using cached data (${Math.round(ageMinutes)}m old, TTL ${cacheTtlMinutes}m)`);
+        console.log(`[bugmerge-stats] Using cached data (${Math.round(ageMinutes)}m old, TTL ${cacheTtlMinutes}m)`);
         const svg = renderCard(cache.metrics, theme);
         writeFileSync(outputPath, svg, 'utf8');
-        console.log(`[gh-contrib-stats] Written to ${outputPath}`);
+        console.log(`[bugmerge-stats] Written to ${outputPath}`);
         return;
       }
     } catch { /* ignore corrupt cache */ }
   }
 
   const fetchOpts: FetchOptions = { user, token, noAvatar };
-  console.log(`[gh-contrib-stats] Fetching data for @${user}...`);
+  console.log(`[bugmerge-stats] Fetching data for @${user}...`);
   const raw = await fetchAllMetrics(fetchOpts);
   const metrics = computeMetrics(raw);
 
@@ -68,10 +68,10 @@ async function main() {
 
   const svg = renderCard(metrics, theme);
   writeFileSync(outputPath, svg, 'utf8');
-  console.log(`[gh-contrib-stats] Written to ${outputPath}`);
+  console.log(`[bugmerge-stats] Written to ${outputPath}`);
 }
 
 main().catch(err => {
-  console.error('[gh-contrib-stats] Fatal:', err instanceof Error ? err.message : err);
+  console.error('[bugmerge-stats] Fatal:', err instanceof Error ? err.message : err);
   process.exit(1);
 });

@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Nexory/gh-contrib-stats@main
+      - uses: Nexory/BugMergeStats@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           username: YOURHANDLE
